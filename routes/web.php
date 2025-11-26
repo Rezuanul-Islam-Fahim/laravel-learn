@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Arr;
 use App\Models\Job;
 
 Route::get('/', function () {
@@ -9,7 +8,7 @@ Route::get('/', function () {
 });
 
 Route::get('/jobs', function () {
-    $jobs = Job::with('employer')->get();
+    $jobs = Job::with('employer')->simplePaginate(10);
 
     return view('jobs', ['jobs' => $jobs]);
 });
