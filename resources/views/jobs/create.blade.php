@@ -18,8 +18,15 @@
                                 class="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
                                 <input id="title" type="text" name="title" placeholder="Job Title"
                                     class="block min-w-0 grow bg-white py-1.5 px-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6" />
+
                             </div>
                         </div>
+
+                        @error('title')
+                            <p class="text-sm text-red-500 font-semibold mt-1">
+                                {{ $message }}
+                            </p>
+                        @enderror
                     </div>
 
                     <div class="sm:col-span-4">
@@ -31,9 +38,24 @@
                                     class="block min-w-0 grow bg-white py-1.5 px-2 text-base text-gray-900 placeholder:text-gray-400 focus:outline-none sm:text-sm/6" />
                             </div>
                         </div>
+                        @error('salary')
+                            <p class="text-sm text-red-500 font-semibold mt-1">
+                                {{ $message }}
+                            </p>
+                        @enderror
                     </div>
 
                 </div>
+
+                {{-- @if ($errors->any())
+                    <div class="mt-5">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li><span class="text-red-500">{{ $error }}</span></li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif --}}
             </div>
         </div>
 
