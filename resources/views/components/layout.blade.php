@@ -85,8 +85,9 @@
     </nav>
 
     <header class="bg-white shadow">
-        <div class="max-w-7xl mx-auto px-4 py-4">
+        <div class="max-w-7xl mx-auto px-4 py-4 items-center sm:flex sm:justify-between">
             <h1 class="text-2xl text-black font-semibold">{{ $heading }}</h1>
+            <x-custom-button href="/jobs/create">Create Job</x-custom-button>
         </div>
     </header>
 
