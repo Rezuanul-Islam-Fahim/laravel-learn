@@ -7,14 +7,28 @@ Route::get('/', function () {
     return view('home', ['greeting' => 'Hello']);
 });
 
-Route::get('/jobs', function () {
-    $jobs = Job::with('employer')->simplePaginate(10);
+Route::get('/jobs/create', function () {
+    return view('jobs.create');
+});
 
-    return view('jobs', ['jobs' => $jobs]);
+Route::get('/jobs', function () {
+    $jobs = Job::with('employer')->latest()->simplePaginate(10);
+
+    return view('jobs.index', ['jobs' => $jobs]);
 });
 
 Route::get('/jobs/{id}', function ($id) {
-    return view('job', ['job' => Job::find($id)]);
+    return view('jobs.show', ['job' => Job::find($id)]);
+});
+
+Route::post('/jobs', function () {
+    Job::create([
+        'title' => request()->input('title'),
+        'salary' => request()->input('salary'),
+        'employer_id' => 1,
+    ]);
+
+    return redirect('/jobs');
 });
 
 Route::get('/contact', function () {
