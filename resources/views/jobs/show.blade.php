@@ -3,9 +3,13 @@
         Job
     </x-slot:heading>
 
-    <h2 class='font-bold text-lg'>{{ $job['title'] }}</h2>
+    <h2 class='font-bold text-lg'>{{ $job->title }}</h2>
 
     <p>
-        This job pays {{ $job['salary'] }} per year
+        This job pays {{ $job->salary }} per year
     </p>
+
+    <x-custom-button href="/jobs/{{ $job->id }}/edit" class="mt-5">
+        Edit Job
+    </x-custom-button>
 </x-layout>
