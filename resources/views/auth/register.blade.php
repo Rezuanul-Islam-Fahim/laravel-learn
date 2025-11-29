@@ -54,14 +54,14 @@
                     </x-form-field>
 
                     <x-form-field>
-                        <x-form-title for="confirm_password">Confirm Password</x-form-title>
+                        <x-form-title for="password_confirmation">Confirm Password</x-form-title>
                         <div class="mt-2">
                             <div
                                 class="flex items-center rounded-md bg-white pl-3 outline-1 -outline-offset-1 outline-gray-300 focus-within:outline-2 focus-within:-outline-offset-2 focus-within:outline-indigo-600">
-                                <x-form-input name="confirm_password" type="password" placeholder="********" />
+                                <x-form-input name="password_confirmation" type="password" placeholder="********" />
                             </div>
                         </div>
-                        <x-form-error name="confirm_password" />
+                        <x-form-error name="password_confirmation" />
                     </x-form-field>
 
                 </div>
