@@ -17,6 +17,6 @@ Route::view('/contact', 'contact');
 // });
 
 Route::resource('jobs', JobController::class, [
-    'except' => [],
-    'only' => [],
+    // 'except' => [],
+    // 'only' => [],
 ]);
