@@ -7,11 +7,20 @@ use App\Http\Controllers\LoginController;
 
 Route::view('/', 'home', ['greeting' => 'Hello']);
 Route::view('/contact', 'contact');
-Route::resource('jobs', JobController::class);
+
+Route::get('/jobs', [JobController::class, 'index']);
+Route::get('/jobs/create', [JobController::class, 'create'])
+    ->middleware('auth');
+Route::get('/jobs/{job}', [JobController::class, 'show']);
+Route::get('/jobs/{job}/edit', [JobController::class, 'edit'])
+    ->middleware('auth')->can('edit-job', 'job');
+Route::post('/jobs', [JobController::class, 'store']);
+Route::patch('/jobs/{job}', [JobController::class, 'update']);
+Route::delete('/jobs/{job}', [JobController::class, 'destroy']);
 
 Route::get('/register', [RegisterController::class, 'create']);
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/login', [LoginController::class, 'create']);
+Route::get('/login', [LoginController::class, 'create'])->name('login');
 Route::post('/login', [LoginController::class, 'store']);
 Route::post('/logout', [LoginController::class, 'destroy']);
