@@ -1,11 +1,19 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
-use App\Mail\JobPosted;
+use App\Jobs\TranslateJob;
+use App\Models\Job;
+
+Route::get('/test', function () {
+    $job = Job::first();
+
+    TranslateJob::dispatch($job);
+
+    return 'Hello';
+});
 
 Route::view('/', 'home', ['greeting' => 'Hello']);
 Route::view('/contact', 'contact');
