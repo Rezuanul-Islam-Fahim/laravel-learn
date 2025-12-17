@@ -7,12 +7,6 @@ use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Mail\JobPosted;
 
-Route::get('/test', function () {
-    Mail::to('rifahim98@gmail.com')->send(new JobPosted());
-
-    return 'Mail sent';
-});
-
 Route::view('/', 'home', ['greeting' => 'Hello']);
 Route::view('/contact', 'contact');
 
